@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('git'){
+            steps{
+                git 'https://github.com/darkskull58/jenkins-mvn-demo'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn -f hello-app/pom.xml -B -DskipTests clean package'
